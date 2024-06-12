@@ -1,0 +1,26 @@
+require('dotenv').config() // Загрузка переменных окружения из ..env файла
+
+console.log('DATABASE CONFIGURATION', process.env)
+module.exports = {
+    development: {
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DB,
+        host: 'postgres',
+        dialect: 'postgres',
+    },
+    test: {
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DB,
+        host: 'postgres',
+        dialect: 'postgres',
+    },
+    production: {
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DB,
+        host: 'postgres',
+        dialect: 'postgres',
+    },
+}
