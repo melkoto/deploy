@@ -83,4 +83,6 @@ networks: # Определяет пользовательские сети, ко
 volumes: # Определяет тома, которые будут использоваться для хранения данных.
   pgdata: # Имя тома, который будет использоваться для хранения данных PostgreSQL. Этот том гарантирует, что данные базы данных сохранятся даже после остановки или удаления контейнера.
 
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build -d
+
 docker-compose exec express-app npx sequelize db:migrate
