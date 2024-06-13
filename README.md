@@ -98,7 +98,7 @@ docker compose up --build -d
 docker system prune -f
 ```
 
-### Makefile
+## Makefile
 1. **Обновление кода из репозитория:**
     ```bash
     make update-code
@@ -153,3 +153,33 @@ docker system prune -f
     ```bash
     make cub
     ```
+
+## Команды Docker
+### Показать список всех запущенных контейнеров
+```bash
+docker ps
+```
+### Следить за логами всех контейнеров в реальном времени
+```bash
+docker compose logs -f
+```
+
+### Просмотреть логи только одного сервиса
+```bash
+docker compose logs <service_name>
+```
+
+### Следить за логами сервиса frontend в режиме реального времени
+```bash
+docker compose logs -f frontend
+```
+
+### Посмотреть логи за последние n строк (например, 100 строк)
+```bash
+docker compose logs --tail 100
+```
+
+### Посмотреть последние 100 строк логов сервиса frontend
+```bash
+docker compose logs --tail 100 frontend
+```
