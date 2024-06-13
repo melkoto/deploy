@@ -29,17 +29,19 @@ sudo apt install git
 
 #### Установите Docker
 ```bash
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+sudo apt-get update && \
+sudo apt-get install -y ca-certificates curl && \
+sudo install -m 0755 -d /etc/apt/keyrings && \
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
+sudo chmod a+r /etc/apt/keyrings/docker.asc && \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+sudo apt-get update && \
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin && \
+sudo systemctl start docker && \
+sudo systemctl enable docker && \
+docker --version && \
+docker compose version
 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
 ```
 
 #### Установите Docker Compose
@@ -54,21 +56,35 @@ git clone https://github.com/${YOUR_USERNAME}/${PROJECT_NAME}.git
 cd ${PROJECT_NAME}
 ```
 
+#### Добавьте .env файл в /backend и /frontend
+##### /backend/.env
+```env
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+POSTGRES_HOST=postgres
+POSTGRES_DB_PORT=
+```
+##### /frontend/.env
+```env
+VITE_REACT_APP_API_URL=
+```
+
 #### Запустите приложения
 ```bash
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
 #### Накатите миграции
 ```bash
-docker-compose exec express-app npx sequelize db:migrate
+docker compose exec express-app npx sequelize db:migrate
 ```
 
 ### Обновление приложений
 #### Поднятьну изменения из Git и перезапустить сборку
 ```bash
 git pull
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
 #### Удалите неиспользуемые данные (контейнеры, образы и сети)
