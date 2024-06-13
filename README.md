@@ -50,6 +50,12 @@ sudo apt-get update
 sudo apt-get install docker-compose-plugin
 ```
 
+#### Установите make
+```bash
+sudo apt-get update
+sudo apt-get install make
+```
+
 #### Склонируйте репозиторий
 ```bash
 git clone https://github.com/${YOUR_USERNAME}/${PROJECT_NAME}.git
