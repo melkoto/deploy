@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: true, // Это позволяет доступ к Vite-серверу с других устройств
-    port: 5173, // Убедитесь, что порт совпадает
-  }
+    host: true,
+    port: 5173,
+  },
 })
