@@ -17,6 +17,11 @@ npm run dev
 npm run dev
 ```
 
+### Запустить миграцию
+```bash
+npx sequelize db:migrate
+```
+
 ## Production
 
 ### Первое развертывание приложения Express, React и PostgreSQL на сервере

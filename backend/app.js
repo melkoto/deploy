@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'http://87.228.9.214:5173'],
+    origin: ['http://localhost:5173', 'http://87.228.9.41:5173'],
     optionsSuccessStatus: 200,
 }
 
