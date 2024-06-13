@@ -166,25 +166,25 @@ docker ps
 ```
 ### Следить за логами всех контейнеров в реальном времени
 ```bash
-docker compose logs -f
+docker  logs -f
 ```
 
 ### Просмотреть логи только одного сервиса
 ```bash
-docker compose logs <service_name>
+docker  logs <service_name>
 ```
 
 ### Следить за логами сервиса frontend в режиме реального времени
 ```bash
-docker compose logs -f frontend
+docker  logs -f frontend
 ```
 
 ### Посмотреть логи за последние n строк (например, 100 строк)
 ```bash
-docker compose logs --tail 100
+docker  logs --tail 100
 ```
 
 ### Посмотреть последние 100 строк логов сервиса frontend
 ```bash
-docker compose logs --tail 100 frontend
+docker  logs --tail 100 frontend
 ```
