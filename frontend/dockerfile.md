@@ -26,7 +26,7 @@ RUN echo "Содержимое директории после сборки:" &&
 FROM nginx:alpine
 
 # Эта команда копирует собранные файлы из предыдущего контейнера в директорию Nginx, где они будут доступны для сервировки.
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Эта команда копирует наш собственный конфигурационный файл Nginx в контейнер.
 COPY nginx.conf /etc/nginx/nginx.conf
