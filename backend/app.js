@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
+
 const corsOptions = {
     origin: 'http://87.228.9.214:5173',
     optionsSuccessStatus: 200,
@@ -24,6 +25,7 @@ app.post('/api/users', async (req, res) => {
         res.json(user)
     } catch (error) {
         console.log('error', error)
+        res.status(500).send('Internal Server Error')
     }
 })
 
@@ -33,6 +35,6 @@ app.get('/api/users/:id', async (req, res) => {
     res.json(user)
 })
 
-app.listen(3000, () => {
+app.listen(3000, '0.0.0.0', () => {
     console.log('Example app listening on port 3000!')
 })
